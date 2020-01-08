@@ -1,5 +1,6 @@
 package eunmo.linkedList;
 
+import interfaces.linkedList.MyLinkedList;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -8,6 +9,11 @@ public class MyLinkedListImplTest {
 
     @Test
     public void getSize() {
+        MyLinkedList<String> linkedList = new MyLinkedListImpl<>();
+        linkedList.addFirst("aa");
+        linkedList.addFirst("bb");
+        linkedList.addFirst("cc");
+        assertTrue(linkedList.getSize() == 3);
     }
 
     @Test
@@ -16,6 +22,11 @@ public class MyLinkedListImplTest {
 
     @Test
     public void addFirst() {
+        MyLinkedList<String> linkedList = new MyLinkedListImpl<>();
+        linkedList.addFirst("aa");
+        linkedList.addFirst("bb");
+        linkedList.addFirst("cc");
+        assertTrue(linkedList.getSize() == 3);
     }
 
     @Test
@@ -44,5 +55,10 @@ public class MyLinkedListImplTest {
 
     @Test
     public void getNode() {
+        MyLinkedList<String> linkedList = new MyLinkedListImpl<>();
+        linkedList.addFirst("aa");
+        linkedList.addFirst("bb");
+        linkedList.addFirst("cc");
+        assertTrue(linkedList.getSize() == 3);
     }
 }

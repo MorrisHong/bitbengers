@@ -24,7 +24,9 @@ public class MyLinkedListImpl<T> implements MyLinkedList<T> {
 
     @Override
     public void addFirst(T item) {
-
+        head.next = head;
+        head.data = item;
+        size++;
     }
 
     @Override
@@ -59,9 +61,14 @@ public class MyLinkedListImpl<T> implements MyLinkedList<T> {
 
     @Override
     public Node<T> getNode(int index) {
-        Node<T> current = head;
-        for(int i = 1; i <= index; i++) {
-            current = head.next
+        if(index >= size) {
+            throw new IndexOutOfBoundsException();
         }
+
+        Node<T> temp = head;
+        for(int i = 1; i <= index; i++) {
+            temp = head.next;
+        }
+        return temp;
     }
 }
