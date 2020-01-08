@@ -68,8 +68,8 @@ public class MyLinkedListImpl<T> implements MyLinkedList<T> {
         }
 
         Node<T> temp = head;
-        for(int i = 1; i <= index; i++) {
-            temp = head.next;
+        for(int i = 0; i < index; i++) {
+            temp = temp.next;
         }
         return temp;
     }
