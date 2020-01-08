@@ -20,6 +20,13 @@ public class MyLinkedListImpl<T> implements MyLinkedList<T> {
     @Override
     public void add(int index, T item) {
 
+        if(index == 0) {
+            addFirst(item);
+            return;
+        }
+
+        Node<T> before = getNode(index - 1);
+        addAfter(before, item);
     }
 
     @Override

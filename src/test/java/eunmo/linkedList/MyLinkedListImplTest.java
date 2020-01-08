@@ -19,6 +19,14 @@ public class MyLinkedListImplTest {
 
     @Test
     public void add() {
+        MyLinkedList<String> linkedList = new MyLinkedListImpl<>();
+        linkedList.add(0, "aa");
+        linkedList.add(0, "cc");
+        linkedList.add(1, "bb");
+
+        assertEquals(linkedList.get(0), "cc");
+        assertEquals(linkedList.get(1), "bb");
+        assertEquals(linkedList.get(2), "aa");
     }
 
     @Test
