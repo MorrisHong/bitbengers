@@ -8,7 +8,7 @@ public class MyLinkedListImpl<T> implements MyLinkedList<T> {
     private int size;
 
     public MyLinkedListImpl() {
-        head = new Node<>();
+        head = null;
         size = 0;
     }
 
@@ -24,8 +24,10 @@ public class MyLinkedListImpl<T> implements MyLinkedList<T> {
 
     @Override
     public void addFirst(T item) {
-        head.next = head;
-        head.data = item;
+        Node<T> node = new Node<>();
+        node.data = item;
+        node.next = head;
+        head = node;
         size++;
     }
 
@@ -51,7 +53,7 @@ public class MyLinkedListImpl<T> implements MyLinkedList<T> {
 
     @Override
     public T get(int index) {
-        return null;
+        return getNode(index).data;
     }
 
     @Override
@@ -61,7 +63,7 @@ public class MyLinkedListImpl<T> implements MyLinkedList<T> {
 
     @Override
     public Node<T> getNode(int index) {
-        if(index >= size) {
+        if(index >= size || index < 0) {
             throw new IndexOutOfBoundsException();
         }
 

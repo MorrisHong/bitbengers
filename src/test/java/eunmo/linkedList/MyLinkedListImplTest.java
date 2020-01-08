@@ -47,6 +47,16 @@ public class MyLinkedListImplTest {
 
     @Test
     public void get() {
+        MyLinkedList<String> linkedList = new MyLinkedListImpl<>();
+        linkedList.addFirst("dd");
+        linkedList.addFirst("cc");
+        linkedList.addFirst("bb");
+        linkedList.addFirst("aa");
+
+        System.out.println("linkedList0 = " + linkedList.get(0));
+        System.out.println("linkedList1 = " + linkedList.get(1));
+        System.out.println("linkedList2 = " + linkedList.get(2));
+        System.out.println("linkedList3 = " + linkedList.get(3));
     }
 
     @Test
