@@ -53,10 +53,10 @@ public class MyLinkedListImplTest {
         linkedList.addFirst("bb");
         linkedList.addFirst("aa");
 
-        System.out.println("linkedList0 = " + linkedList.get(0));
-        System.out.println("linkedList1 = " + linkedList.get(1));
-        System.out.println("linkedList2 = " + linkedList.get(2));
-        System.out.println("linkedList3 = " + linkedList.get(3));
+        assertEquals(linkedList.get(0), "aa");
+        assertEquals(linkedList.get(1), "bb");
+        assertEquals(linkedList.get(2), "cc");
+        assertEquals(linkedList.get(3), "dd");
     }
 
     @Test
