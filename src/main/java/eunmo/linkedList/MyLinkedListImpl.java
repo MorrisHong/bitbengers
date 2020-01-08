@@ -49,8 +49,13 @@ public class MyLinkedListImpl<T> implements MyLinkedList<T> {
 
     @Override
     public T remove(T item) {
+        int index = indexOf(item);
 
-        return null;
+        if (index == 0) {
+            return removeFirst();
+        } else {
+            return removeAfter(getNode(index-1));
+        }
     }
 
     @Override
@@ -65,7 +70,7 @@ public class MyLinkedListImpl<T> implements MyLinkedList<T> {
     public T removeAfter(Node<T> before) {
         T item = before.next.data;
         before.next = before.next.next;
-
+        size--;
         return item;
     }
 
