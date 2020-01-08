@@ -59,6 +59,9 @@ public class MyLinkedListImpl<T> implements MyLinkedList<T> {
 
     @Override
     public Node<T> getNode(int index) {
-        return null;
+        Node<T> current = head;
+        for(int i = 1; i <= index; i++) {
+            current = head.next
+        }
     }
 }
