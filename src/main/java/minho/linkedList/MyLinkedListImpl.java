@@ -4,9 +4,17 @@ import interfaces.linkedList.MyLinkedList;
 import interfaces.linkedList.Node;
 
 public class MyLinkedListImpl<T> implements MyLinkedList<T> {
+    private Node<T> head;
+    private int size;
+
+    public MyLinkedListImpl() {
+        head = new Node<>();
+        size = 0;
+    }
+
     @Override
     public int getSize() {
-        return 0;
+        return size;
     }
 
     @Override
