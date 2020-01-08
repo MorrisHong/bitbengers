@@ -61,6 +61,16 @@ public class MyLinkedListImplTest {
 
     @Test
     public void indexOf() {
+        MyLinkedList<String> linkedList = new MyLinkedListImpl<>();
+        linkedList.addFirst("dd");
+        linkedList.addFirst("cc");
+        linkedList.addFirst("bb");
+        linkedList.addFirst("aa");
+
+        assertEquals(linkedList.indexOf("aa"), 0);
+        assertEquals(linkedList.indexOf("bb"), 1);
+        assertEquals(linkedList.indexOf("cc"), 2);
+        assertEquals(linkedList.indexOf("dd"), 3);
     }
 
     @Test

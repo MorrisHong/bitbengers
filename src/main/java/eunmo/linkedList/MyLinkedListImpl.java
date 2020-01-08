@@ -58,7 +58,13 @@ public class MyLinkedListImpl<T> implements MyLinkedList<T> {
 
     @Override
     public int indexOf(T item) {
-        return 0;
+        for(int i = 0; i < size; i++) {
+            if(get(i).equals(item)) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     @Override
