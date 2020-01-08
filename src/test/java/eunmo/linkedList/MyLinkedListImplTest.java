@@ -1,6 +1,7 @@
 package eunmo.linkedList;
 
 import interfaces.linkedList.MyLinkedList;
+import interfaces.linkedList.Node;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -31,6 +32,20 @@ public class MyLinkedListImplTest {
 
     @Test
     public void addAfter() {
+        MyLinkedList<String> linkedList = new MyLinkedListImpl<>();
+
+        linkedList.addFirst("cc");
+        Node<String> node = linkedList.getNode(0);
+        assertEquals(node.data, "cc");
+
+        linkedList.addAfter(node, "dd");
+        assertEquals(linkedList.get(1), "dd");
+        assertEquals(linkedList.getSize(), 2);
+
+        linkedList.addAfter(node, "a");
+        assertEquals(linkedList.get(1), "a");
+        assertEquals(linkedList.get(2), "dd");
+        assertEquals(linkedList.getSize(), 3);
     }
 
     @Test

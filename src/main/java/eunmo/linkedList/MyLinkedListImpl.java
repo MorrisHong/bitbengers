@@ -33,7 +33,11 @@ public class MyLinkedListImpl<T> implements MyLinkedList<T> {
 
     @Override
     public void addAfter(Node<T> before, T item) {
-
+        Node<T> node = new Node<>();
+        node.data = item;
+        node.next = before.next;
+        before.next = node;
+        size++;
     }
 
     @Override
