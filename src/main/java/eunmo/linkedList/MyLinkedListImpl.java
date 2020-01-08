@@ -49,12 +49,16 @@ public class MyLinkedListImpl<T> implements MyLinkedList<T> {
 
     @Override
     public T remove(T item) {
+
         return null;
     }
 
     @Override
     public T removeFirst() {
-        return null;
+        T item = head.data;
+        head = head.next;
+        size--;
+        return item;
     }
 
     @Override
