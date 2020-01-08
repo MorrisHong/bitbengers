@@ -78,6 +78,15 @@ public class MyLinkedListImplTest {
 
     @Test
     public void removeAfter() {
+        MyLinkedList<String> linkedList = new MyLinkedListImpl<>();
+        linkedList.add(0, "aa");
+        linkedList.add(1, "bb");
+        linkedList.add(2, "cc");
+
+        Node<String> node = linkedList.getNode(0);
+        String str = linkedList.removeAfter(node);
+
+        assertEquals("bb", str);
     }
 
     @Test

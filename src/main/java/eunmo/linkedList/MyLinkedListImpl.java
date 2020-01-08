@@ -63,7 +63,10 @@ public class MyLinkedListImpl<T> implements MyLinkedList<T> {
 
     @Override
     public T removeAfter(Node<T> before) {
-        return null;
+        T item = before.next.data;
+        before.next = before.next.next;
+
+        return item;
     }
 
     @Override
