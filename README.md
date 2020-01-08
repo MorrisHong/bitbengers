@@ -30,6 +30,13 @@ public class MyLinkedListImpl<T> implements MyLinkedList<T> {
     Node<T> getNode(int index){...}
 }
 `````
+
+- `private Node<T> head`
+  - MyLinkedList의 첫번째 Node다.
+  
+- `private int size`
+  - LinkedList의 현재 사이즈.
+---
 - `int getSize()`
   - 현재 LinkedList의 size를 리턴한다.
   
