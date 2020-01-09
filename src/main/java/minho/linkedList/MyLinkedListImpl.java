@@ -8,7 +8,7 @@ public class MyLinkedListImpl<T> implements MyLinkedList<T> {
     private int size;
 
     public MyLinkedListImpl() {
-        head = new Node<>();
+        head = null;
         size = 0;
     }
 
