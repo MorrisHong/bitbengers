@@ -20,6 +20,13 @@ public class MyLinkedListImpl<T> implements MyLinkedList<T> {
     @Override
     public void add(int index, T item) {
 
+        if(index == 0) {
+            addFirst(item);
+            return;
+        }
+
+        Node<T> before = getNode(index - 1);
+        addAfter(before, item);
     }
 
     @Override
@@ -33,22 +40,38 @@ public class MyLinkedListImpl<T> implements MyLinkedList<T> {
 
     @Override
     public void addAfter(Node<T> before, T item) {
-
+        Node<T> node = new Node<>();
+        node.data = item;
+        node.next = before.next;
+        before.next = node;
+        size++;
     }
 
     @Override
     public T remove(T item) {
-        return null;
+        int index = indexOf(item);
+
+        if (index == 0) {
+            return removeFirst();
+        } else {
+            return removeAfter(getNode(index-1));
+        }
     }
 
     @Override
     public T removeFirst() {
-        return null;
+        T item = head.data;
+        head = head.next;
+        size--;
+        return item;
     }
 
     @Override
     public T removeAfter(Node<T> before) {
-        return null;
+        T item = before.next.data;
+        before.next = before.next.next;
+        size--;
+        return item;
     }
 
     @Override
@@ -58,7 +81,13 @@ public class MyLinkedListImpl<T> implements MyLinkedList<T> {
 
     @Override
     public int indexOf(T item) {
-        return 0;
+        for(int i = 0; i < size; i++) {
+            if(get(i).equals(item)) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     @Override
