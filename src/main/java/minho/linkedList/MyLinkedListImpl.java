@@ -21,18 +21,11 @@ public class MyLinkedListImpl<T> implements MyLinkedList<T> {
 
     @Override
     public void add(int index, T item) {
-        Node<T> node = null;
-        if(index > 0) {
-            node = getNode(index - 1);
-        }
 
-        if (node == null) {
+        if (index == 0) {
             addFirst(item);
         } else {
-            Node<T> addNode = new Node<>(item);
-            addNode.next = node.next;
-            node.next = addNode;
-            size++;
+            addAfter(getNode(index-1), item);
         }
 
     }
@@ -40,13 +33,8 @@ public class MyLinkedListImpl<T> implements MyLinkedList<T> {
     @Override
     public void addFirst(T item) {
         Node<T> node = new Node<>(item);
-
-        if (head == null) {
-            head = node;
-        } else {
-            node.next = head;
-            head = node;
-        }
+        node.next = head;
+        head = node;
         size++;
     }
 
@@ -61,13 +49,8 @@ public class MyLinkedListImpl<T> implements MyLinkedList<T> {
     @Override
     public T remove(T item) {
         int nodeIdx = indexOf(item);
-        if(nodeIdx == 0) removeFirst();
-        if(nodeIdx > 0) {
-            Node<T> node = getNode(indexOf(item));
-            getNode(indexOf(item)-1).next = node.next;
-            size--;
-            return node.data;
-        }
+        if (nodeIdx == 0) removeFirst();
+        if (nodeIdx > 0) return removeAfter(getNode(nodeIdx - 1));
         return null;
     }
 
@@ -83,6 +66,7 @@ public class MyLinkedListImpl<T> implements MyLinkedList<T> {
     public T removeAfter(Node<T> before) {
         T data = before.next.data;
         before.next = before.next.next;
+        size--;
         return data;
     }
 
@@ -93,10 +77,9 @@ public class MyLinkedListImpl<T> implements MyLinkedList<T> {
 
     @Override
     public int indexOf(T item) {
-        Node<T> node = head;
-        for(int i = 0; i < getSize(); i++) {
-            if(node.data == item) return i;
-            node = node.next;
+
+        for (int i = 0; i < getSize(); i++) {
+            if (get(i) == item) return i;
         }
         return -1;
     }
